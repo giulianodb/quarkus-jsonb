@@ -1,0 +1,76 @@
+Maven version:
+Apache Maven 3.6.0
+Maven home: /usr/share/maven
+Java version: 1.8.0_222, vendor: Oracle Corporation, runtime: /usr/lib/jvm/graalvm-ce-19.2.0.1/jre
+Default locale: pt_BR, platform encoding: UTF-8
+OS name: "linux", version: "4.15.0-65-generic", arch: "amd64", family: "unix"
+
+Java version:
+openjdk version "1.8.0_222"
+OpenJDK Runtime Environment (build 1.8.0_222-20190711120915.buildslave.jdk8u-src-tar--b08)
+OpenJDK 64-Bit GraalVM CE 19.2.0.1 (build 25.222-b08-jvmci-19.2-b02, mixed mode)
+
+Test with Runner JAR 
+     curl http://localhost:8080/car -v
+     -- hello = Fusca
+     
+Test with native runner
+     curl http://localhost:8080/car -v
+     
+     Generate Error:
+     
+     
+     2019-10-23 14:20:13,494 SEVERE [org.ecl.yas.int.Unmarshaller] (vert.x-worker-thread-0) Can't create instance of a class: class org.acme.quickstart.vo.Car, No default constructor found.
+2019-10-23 14:20:13,494 ERROR [io.qua.ver.htt.run.QuarkusErrorHandler] (vert.x-worker-thread-0) HTTP Request to /car failed, error id: 37d5af26-7552-492e-9076-eec71b0b50cc-1: org.jboss.resteasy.spi.UnhandledException: javax.json.bind.JsonbException: Can't create instance of a class: class org.acme.quickstart.vo.Car, No default constructor found.
+	at org.jboss.resteasy.core.ExceptionHandler.handleApplicationException(ExceptionHandler.java:106)
+	at org.jboss.resteasy.core.ExceptionHandler.handleException(ExceptionHandler.java:372)
+	at org.jboss.resteasy.core.SynchronousDispatcher.writeException(SynchronousDispatcher.java:209)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:496)
+	at org.jboss.resteasy.core.SynchronousDispatcher.lambda$invoke$4(SynchronousDispatcher.java:252)
+	at org.jboss.resteasy.core.SynchronousDispatcher.lambda$preprocess$0(SynchronousDispatcher.java:153)
+	at org.jboss.resteasy.core.interception.jaxrs.PreMatchContainerRequestContext.filter(PreMatchContainerRequestContext.java:363)
+	at org.jboss.resteasy.core.SynchronousDispatcher.preprocess(SynchronousDispatcher.java:156)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:238)
+	at io.quarkus.resteasy.runtime.standalone.RequestDispatcher.service(RequestDispatcher.java:69)
+	at io.quarkus.resteasy.runtime.standalone.VertxRequestHandler.dispatch(VertxRequestHandler.java:104)
+	at io.quarkus.resteasy.runtime.standalone.VertxRequestHandler.dispatchRequestContext(VertxRequestHandler.java:83)
+	at io.quarkus.resteasy.runtime.standalone.VertxRequestHandler.lambda$handle$0(VertxRequestHandler.java:70)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+	at com.oracle.svm.core.thread.JavaThreads.threadStartRoutine(JavaThreads.java:460)
+	at com.oracle.svm.core.posix.thread.PosixJavaThreads.pthreadStartRoutine(PosixJavaThreads.java:193)
+Caused by: javax.json.bind.JsonbException: Can't create instance of a class: class org.acme.quickstart.vo.Car, No default constructor found.
+	at org.eclipse.yasson.internal.serializer.ObjectDeserializer.getInstance(ObjectDeserializer.java:95)
+	at org.eclipse.yasson.internal.serializer.AbstractContainerDeserializer.deserialize(AbstractContainerDeserializer.java:61)
+	at org.eclipse.yasson.internal.Unmarshaller.deserializeItem(Unmarshaller.java:68)
+	at org.eclipse.yasson.internal.Unmarshaller.deserialize(Unmarshaller.java:54)
+	at org.eclipse.yasson.internal.JsonBinding.deserialize(JsonBinding.java:53)
+	at org.eclipse.yasson.internal.JsonBinding.fromJson(JsonBinding.java:60)
+	at org.acme.quickstart.GreetingResource.hello(GreetingResource.java:22)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:151)
+	at org.jboss.resteasy.core.MethodInjectorImpl.lambda$invoke$3(MethodInjectorImpl.java:122)
+	at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:602)
+	at java.util.concurrent.CompletableFuture.uniApplyStage(CompletableFuture.java:614)
+	at java.util.concurrent.CompletableFuture.thenApply(CompletableFuture.java:1983)
+	at java.util.concurrent.CompletableFuture.thenApply(CompletableFuture.java:110)
+	at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:122)
+	at org.jboss.resteasy.core.ResourceMethodInvoker.internalInvokeOnTarget(ResourceMethodInvoker.java:594)
+	at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTargetAfterFilter(ResourceMethodInvoker.java:468)
+	at org.jboss.resteasy.core.ResourceMethodInvoker.lambda$invokeOnTarget$2(ResourceMethodInvoker.java:421)
+	at org.jboss.resteasy.core.interception.jaxrs.PreMatchContainerRequestContext.filter(PreMatchContainerRequestContext.java:363)
+	at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTarget(ResourceMethodInvoker.java:423)
+	at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:391)
+	at org.jboss.resteasy.core.ResourceMethodInvoker.lambda$invoke$1(ResourceMethodInvoker.java:365)
+	at java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:981)
+	at java.util.concurrent.CompletableFuture.thenCompose(CompletableFuture.java:2124)
+	at java.util.concurrent.CompletableFuture.thenCompose(CompletableFuture.java:110)
+	at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:365)
+	at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:477)
+	... 16 more
+
+
+     
