@@ -2,6 +2,9 @@ package org.acme.quickstart.vo;
 
 import java.io.Serializable;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
+@RegisterForReflection
 public class Car implements Serializable {
 	/**
 	 * 
